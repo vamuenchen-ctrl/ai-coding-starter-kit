@@ -386,7 +386,7 @@ Keine neuen Packages noetig:
 ### Summary
 
 - ✅ **10/10 Acceptance Criteria erfuellt**
-- ✅ **5/5 Bugs gefixt** (0 offen)
+- ✅ **7/7 Bugs gefixt** (0 offen)
 - ✅ **Security: Keine Luecken gefunden**
 - ✅ **Regression: 196 Tests bestanden, Build OK**
 
@@ -411,6 +411,25 @@ Keine neuen Packages noetig:
   3. `CloudBanner.jsx:abmeldenUndLoeschen()` — Nutzt `abmelden({ global: true })`
   4. `SyncEngineContext.jsx:vollstaendigerAbgleich()` — Erkennt Cross-Device-Loeschung: Wenn Cloud ersteinrichtung=false, lokal=true, und synced-Flag gesetzt → lokale Daten loeschen statt re-uploaden
 
+#### BUG-7: Cross-Device Re-Authentifizierung nach globalem Signout (Security) — FIXED
+
+- **Severity:** High (Security)
+- **Gefunden:** 2026-02-11 (Manueller Cross-Device-Test)
+- **Szenario:**
+  1. Nutzerin ist auf Geraet A und Geraet B eingeloggt
+  2. Auf Geraet A: "Abmelden und alle Daten loeschen"
+  3. Geraet B bleibt eingeloggt, zeigt nur Ersteinrichtung (Daten geloescht, aber Session aktiv)
+  4. Auf Geraet A: Erneut anmelden
+  5. Geraet B wird automatisch wieder eingeloggt (mit vollem Zugriff)
+- **Root Cause (2 Probleme):**
+  1. Supabase `signOut({ scope: 'global' })` revoziert nur Refresh-Tokens — sendet **keine Echtzeit-Benachrichtigung** an andere Geraete. Device B's JWT (Access Token) bleibt bis zu ~1 Stunde gueltig.
+  2. `onAuthStateChange('SIGNED_OUT')` auf Device B raeumte `sb-*` Tokens nicht aus localStorage auf, sodass Auto-Refresh die Session wiederherstellen konnte.
+- **Fix (2 Dateien, 3 Aenderungen):**
+  1. `AuthContext.jsx:onAuthStateChange()` — Bei `SIGNED_OUT`-Event: `sb-*` Tokens aus localStorage entfernen (verhindert Auto-Refresh Re-Authentifizierung)
+  2. `AuthContext.jsx:abmelden()` — Laengerer Timeout fuer globalen Signout (8s statt 3s), Token-Cleanup nach signOut (nicht davor, da der Client die Tokens fuer den API-Call braucht)
+  3. `SyncEngineContext.jsx:tabelleNeuLaden() + vollstaendigerAbgleich()` — Bei Erkennung der Cross-Device-Loeschung (Cloud ersteinrichtung=false) zusaetzlich `supabase.auth.signOut()` aufrufen, um die lokale Session sofort zu beenden (statt auf JWT-Ablauf zu warten)
+- **Tests:** 196/196 bestanden, Build OK, Cross-Device-Test bestanden
+
 ### Recommendation
 
 **Feature ist production-ready.** Vor Deployment:
@@ -418,3 +437,4 @@ Keine neuen Packages noetig:
 2. Live Cross-Device-Test empfohlen (AC-2 Latenz verifizieren)
 3. Nach Deploy: Cross-Device-Sync nochmal testen (BUG-5 Timezone-Fix verifizieren)
 4. Cross-Device-Loeschung testen (BUG-6 Fix verifizieren)
+5. Cross-Device-Signout testen (BUG-7 Security-Fix verifizieren)
