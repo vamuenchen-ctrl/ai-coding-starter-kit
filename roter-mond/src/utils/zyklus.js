@@ -418,12 +418,31 @@ export function berechneAngepassteGrenzen(zyklusLaenge, korrekturen) {
     }
     // Wenn der korrigierte Tag nach dem aktuellen Ende liegt, Grenze erweitern
     else if (m.zyklusTag > aktuelleGrenze.ende) {
-      const naechstePhase = neueGrenzen[(phaseIndex + 1) % 4]
       aktuelleGrenze.ende = m.zyklusTag
       aktuelleGrenze.laenge = aktuelleGrenze.ende - aktuelleGrenze.start + 1
+      const naechstePhase = neueGrenzen[(phaseIndex + 1) % 4]
       naechstePhase.start = m.zyklusTag + 1
       naechstePhase.laenge = naechstePhase.ende - naechstePhase.start + 1
     }
+  }
+
+  // Konsistenz sicherstellen: start/ende/laenge sequenziell neu berechnen
+  let tagStart = 1
+  for (let i = 0; i < neueGrenzen.length; i++) {
+    // Mindestlänge 1 Tag pro Phase
+    const laenge = Math.max(1, neueGrenzen[i].laenge)
+    neueGrenzen[i].start = tagStart
+    neueGrenzen[i].ende = tagStart + laenge - 1
+    neueGrenzen[i].laenge = laenge
+    tagStart = neueGrenzen[i].ende + 1
+  }
+  // Letzte Phase bekommt den Rest bis zyklusLaenge
+  const letzte = neueGrenzen[neueGrenzen.length - 1]
+  letzte.ende = zyklusLaenge
+  letzte.laenge = letzte.ende - letzte.start + 1
+  if (letzte.laenge < 1) {
+    letzte.laenge = 1
+    letzte.start = zyklusLaenge
   }
 
   return neueGrenzen

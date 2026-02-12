@@ -779,11 +779,15 @@ function PhasenBalken({ zyklusLaenge, angepassteGrenzen, grenzenZurueckgesetzt, 
   }, [infoOffen])
 
   const standardGrenzen = berechnePhasenGrenzen(zyklusLaenge)
-  const grenzen = angepassteGrenzen && angepassteGrenzen.length === 4
+  const hatAnpassung = angepassteGrenzen && angepassteGrenzen.length === 4
+  // Konsistenzprüfung: Fallback auf Standard wenn Längen negativ oder Summe falsch
+  const anpassungGueltig = hatAnpassung && angepassteGrenzen.every(g => g.laenge > 0)
+    && angepassteGrenzen.reduce((s, g) => s + g.laenge, 0) === zyklusLaenge
+  const grenzen = anpassungGueltig
     ? angepassteGrenzen
     : standardGrenzen
 
-  const istPersonalisiert = angepassteGrenzen && angepassteGrenzen.length === 4
+  const istPersonalisiert = anpassungGueltig
 
   return (
     <div
@@ -841,16 +845,17 @@ function PhasenBalken({ zyklusLaenge, angepassteGrenzen, grenzenZurueckgesetzt, 
             const cx = 150, cy = 120
             const radius = 55
             const umfang = 2 * Math.PI * radius
-            const labelRadius = 90
             let winkelOffset = 0
             const elemente = []
+            const segmentGrenzen = [] // Sammelt die Startwinkel für Trennlinien
 
             grenzen.forEach((g) => {
               const prozent = g.laenge / zyklusLaenge
               const segmentLaenge = prozent * umfang
-              const segmentWinkel = prozent * 2 * Math.PI
               const currentOffset = -winkelOffset
               const meta = PHASEN_INFO[g.phase]
+
+              segmentGrenzen.push({ winkelOffset, phase: g.phase })
 
               // Segment-Rand (kräftige Archetyp-Farbe)
               elemente.push(
@@ -883,13 +888,93 @@ function PhasenBalken({ zyklusLaenge, angepassteGrenzen, grenzenZurueckgesetzt, 
                 />
               )
 
-              // Label am Mittelpunkt des Segments
-              const mittelpunktWinkel = winkelOffset / umfang * 2 * Math.PI + segmentWinkel / 2
-              const lx = cx + labelRadius * Math.sin(mittelpunktWinkel)
-              const ly = cy - labelRadius * Math.cos(mittelpunktWinkel)
-              const sinVal = Math.sin(mittelpunktWinkel)
-              const textAnchor = sinVal > 0.15 ? 'start' : sinVal < -0.15 ? 'end' : 'middle'
+              winkelOffset += segmentLaenge
+            })
 
+            // Trennlinien zwischen Segmenten (je 2 pro Grenze + weiße Mitte)
+            const innerR = radius - 10
+            const outerR = radius + 10
+            const trennAbstand = 0.012 // Winkel-Offset in Radiant (~0.7°)
+            segmentGrenzen.forEach((sg, i) => {
+              const winkel = (sg.winkelOffset / umfang) * 2 * Math.PI - Math.PI / 2
+              const vorherIdx = (i - 1 + segmentGrenzen.length) % segmentGrenzen.length
+              const metaVorher = PHASEN_INFO[segmentGrenzen[vorherIdx].phase]
+              const metaNachher = PHASEN_INFO[sg.phase]
+
+              // Linie links (Farbe des vorherigen Segments)
+              const w1 = winkel - trennAbstand
+              elemente.push(
+                <line
+                  key={`trenn-l-${sg.phase}`}
+                  x1={cx + innerR * Math.cos(w1)} y1={cy + innerR * Math.sin(w1)}
+                  x2={cx + outerR * Math.cos(w1)} y2={cy + outerR * Math.sin(w1)}
+                  stroke={metaVorher.farbeHex}
+                  strokeWidth="1.5"
+                />
+              )
+              // Weiße Trennlinie in der Mitte
+              elemente.push(
+                <line
+                  key={`trenn-w-${sg.phase}`}
+                  x1={cx + innerR * Math.cos(winkel)} y1={cy + innerR * Math.sin(winkel)}
+                  x2={cx + outerR * Math.cos(winkel)} y2={cy + outerR * Math.sin(winkel)}
+                  stroke="#FFFFFF"
+                  strokeWidth="1"
+                />
+              )
+              // Linie rechts (Farbe des nächsten Segments)
+              const w2 = winkel + trennAbstand
+              elemente.push(
+                <line
+                  key={`trenn-r-${sg.phase}`}
+                  x1={cx + innerR * Math.cos(w2)} y1={cy + innerR * Math.sin(w2)}
+                  x2={cx + outerR * Math.cos(w2)} y2={cy + outerR * Math.sin(w2)}
+                  stroke={metaNachher.farbeHex}
+                  strokeWidth="1.5"
+                />
+              )
+            })
+
+            // Labels mit Kollisionsvermeidung
+            const labelRadius = 90
+            const minAbstand = 28 // Mindestabstand in Pixeln zwischen Labels
+            let labelWinkelOffset = 0
+            const labelPositionen = grenzen.map((g) => {
+              const prozent = g.laenge / zyklusLaenge
+              const segWinkel = prozent * 2 * Math.PI
+              const mittelWinkel = labelWinkelOffset / umfang * 2 * Math.PI + segWinkel / 2
+              labelWinkelOffset += prozent * umfang
+              return {
+                phase: g,
+                winkel: mittelWinkel,
+                x: cx + labelRadius * Math.sin(mittelWinkel),
+                y: cy - labelRadius * Math.cos(mittelWinkel),
+              }
+            })
+
+            // Überlappende Labels auseinanderschieben
+            for (let runde = 0; runde < 5; runde++) {
+              for (let i = 0; i < labelPositionen.length; i++) {
+                for (let j = i + 1; j < labelPositionen.length; j++) {
+                  const a = labelPositionen[i]
+                  const b = labelPositionen[j]
+                  const dy = b.y - a.y
+                  const dx = b.x - a.x
+                  const dist = Math.sqrt(dx * dx + dy * dy)
+                  if (dist < minAbstand) {
+                    const verschiebung = (minAbstand - dist) / 2 + 1
+                    const richtungY = dy === 0 ? 1 : Math.sign(dy)
+                    a.y -= verschiebung * richtungY
+                    b.y += verschiebung * richtungY
+                  }
+                }
+              }
+            }
+
+            labelPositionen.forEach(({ phase: g, x: lx, y: ly }) => {
+              const meta = PHASEN_INFO[g.phase]
+              const sinVal = (lx - cx) / labelRadius
+              const textAnchor = sinVal > 0.15 ? 'start' : sinVal < -0.15 ? 'end' : 'middle'
               elemente.push(
                 <g
                   key={`label-${g.phase}`}
@@ -917,54 +1002,6 @@ function PhasenBalken({ zyklusLaenge, angepassteGrenzen, grenzenZurueckgesetzt, 
                   </text>
                 </g>
               )
-
-              winkelOffset += segmentLaenge
-            })
-
-            // Trennlinien zwischen Segmenten (je 2 pro Grenze: Farbe beider Nachbarn)
-            const innerR = radius - 10
-            const outerR = radius + 10
-            const trennAbstand = 0.012 // Winkel-Offset in Radiant (~0.7°)
-            let trennOffset = 0
-            grenzen.forEach((g, i) => {
-              const winkel = (trennOffset / umfang) * 2 * Math.PI - Math.PI / 2
-              const vorher = grenzen[(i - 1 + grenzen.length) % grenzen.length]
-              const metaVorher = PHASEN_INFO[vorher.phase]
-              const metaNachher = PHASEN_INFO[g.phase]
-
-              // Linie links (Farbe des vorherigen Segments)
-              const w1 = winkel - trennAbstand
-              elemente.push(
-                <line
-                  key={`trenn-l-${g.phase}`}
-                  x1={cx + innerR * Math.cos(w1)} y1={cy + innerR * Math.sin(w1)}
-                  x2={cx + outerR * Math.cos(w1)} y2={cy + outerR * Math.sin(w1)}
-                  stroke={metaVorher.farbeHex}
-                  strokeWidth="1.5"
-                />
-              )
-              // Weiße Trennlinie in der Mitte
-              elemente.push(
-                <line
-                  key={`trenn-w-${g.phase}`}
-                  x1={cx + innerR * Math.cos(winkel)} y1={cy + innerR * Math.sin(winkel)}
-                  x2={cx + outerR * Math.cos(winkel)} y2={cy + outerR * Math.sin(winkel)}
-                  stroke="#FFFFFF"
-                  strokeWidth="1"
-                />
-              )
-              // Linie rechts (Farbe des nächsten Segments)
-              const w2 = winkel + trennAbstand
-              elemente.push(
-                <line
-                  key={`trenn-r-${g.phase}`}
-                  x1={cx + innerR * Math.cos(w2)} y1={cy + innerR * Math.sin(w2)}
-                  x2={cx + outerR * Math.cos(w2)} y2={cy + outerR * Math.sin(w2)}
-                  stroke={metaNachher.farbeHex}
-                  strokeWidth="1.5"
-                />
-              )
-              trennOffset += (g.laenge / zyklusLaenge) * umfang
             })
 
             return elemente
