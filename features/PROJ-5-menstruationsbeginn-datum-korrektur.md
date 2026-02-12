@@ -1,6 +1,7 @@
 # PROJ-5: Menstruationsbeginn-Datum korrigieren
 
-## Status: Planned
+## Status: Deployed (2026-02-12)
+## Production URL: https://roter-mond.vercel.app
 
 ## Zusammenfassung
 
