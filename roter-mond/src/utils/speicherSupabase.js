@@ -342,7 +342,7 @@ export async function ladeTageskarten(userId) {
 
   return data.map((k) => ({
     datum: isoAlsDatum(k.datum),
-    kartenId: k.karten_id,
+    kartenId: Number(k.karten_id),
     feldZeitstempel: k.feld_zeitstempel || {},
   }))
 }
@@ -395,7 +395,7 @@ export async function ladeHeutigeTageskarte(userId) {
 
   return {
     datum: isoAlsDatum(data.datum),
-    kartenId: data.karten_id,
+    kartenId: Number(data.karten_id),
   }
 }
 
