@@ -1,0 +1,58 @@
+{
+  "symboltiere": [
+    {
+      "name": "Schmetterling",
+      "phase": "jungeFrau",
+      "phaseName": "Junge Frau",
+      "beschreibung": "Der Schmetterling steht für Transformation und Leichtigkeit. Wie die Raupe sich verpuppt und als geflügeltes Wesen wieder erscheint, so erhebt sich die Frau nach der Menstruation in eine neue Phase. Der Schmetterling erinnert daran, dass Veränderung kein Verlust ist, sondern ein Aufblühen."
+    },
+    {
+      "name": "Einhorn",
+      "phase": "jungeFrau",
+      "phaseName": "Junge Frau",
+      "beschreibung": "Das Einhorn symbolisiert Reinheit, Magie und unberührtes Potenzial. Es ist das Wesen, das noch alle Möglichkeiten in sich trägt – ungezähmt und frei. In der Phase der Jungen Frau verkörpert es die Kraft, die eigene Einzigartigkeit zu leben."
+    },
+    {
+      "name": "Taube",
+      "phase": "mutter",
+      "phaseName": "Mutter",
+      "beschreibung": "Die Taube steht für Liebe, Frieden und die nährende Kraft der Verbundenheit. In der Phase der Mutter erinnert sie daran, dass wahre Stärke in der Sanftheit liegt und dass Fürsorge eine der mächtigsten Kräfte der Welt ist."
+    },
+    {
+      "name": "Pferd",
+      "phase": "mutter_zauberin",
+      "phaseName": "Mutter / Zauberin",
+      "beschreibung": "Das Pferd verkörpert Kraft, Freiheit und instinktive Weisheit. Es bewegt sich zwischen den Welten – gezähmt und wild, dienend und frei. Es erinnert daran, dass Stärke und Anmut zusammengehören."
+    },
+    {
+      "name": "Kranich",
+      "phase": "zauberin",
+      "phaseName": "Zauberin",
+      "beschreibung": "Der Kranich steht für Konzentration, Geduld und das Gleichgewicht zwischen den Elementen. In der Phase der Zauberin symbolisiert er die Fähigkeit, in der Stille zu stehen und gleichzeitig wachsam zu sein."
+    },
+    {
+      "name": "Eule",
+      "phase": "zauberin_alteWeise",
+      "phaseName": "Zauberin / Alte Weise",
+      "beschreibung": "Die Eule sieht im Dunkeln. Sie steht für Weisheit, die über das Sichtbare hinausgeht, für Intuition und die Fähigkeit, Wahrheit dort zu finden, wo andere nur Schatten sehen."
+    },
+    {
+      "name": "Hase",
+      "phase": "alteWeise",
+      "phaseName": "Alte Weise",
+      "beschreibung": "Der Hase wandelt zwischen den Welten – zwischen Tag und Nacht, zwischen Sichtbarem und Unsichtbarem. Er steht für Intuition, Feinfühligkeit und die Verbindung zu den Zyklen der Natur. In vielen Kulturen ist er ein Mondtier."
+    }
+  ],
+  "zyklustypen": {
+    "weissmond": {
+      "name": "Weißmond-Zyklus",
+      "beschreibung": "Der Weißmond-Zyklus beschreibt das Muster, bei dem die Menstruation mit der Neumondphase zusammenfällt und der Eisprung mit dem Vollmond. Dieser Zyklus wird traditionell als der fruchtbare, nach außen gerichtete Typ beschrieben. Die Frau steht mit ihren Energien im Einklang mit dem sichtbaren Mondlicht: Wenn der Mond voll ist und die Nacht erhellt, ist auch ihre nach außen gerichtete, nährende Energie auf dem Höhepunkt. Wenn der Mond dunkel ist, zieht auch sie sich zurück. Der Weißmond-Zyklus gilt als der häufigere der beiden Typen."
+    },
+    "rotmond": {
+      "name": "Rotmond-Zyklus",
+      "beschreibung": "Der Rotmond-Zyklus beschreibt das umgekehrte Muster: Die Menstruation fällt mit dem Vollmond zusammen und der Eisprung mit dem Neumond. Dieser Zyklus wird als der heilende, nach innen gerichtete Typ beschrieben. Wenn das Licht des Vollmondes am stärksten ist, zieht sich die Frau zurück und geht in die Tiefe. Ihre Fruchtbarkeit und nach außen gerichtete Energie liegt im Verborgenen, bei Neumond. Traditionell wird der Rotmond-Zyklus mit Heilerinnen, Schamaninnen und Frauen in Verbindung gebracht, die eine besonders starke Verbindung zur unsichtbaren, spirituellen Seite der Weiblichkeit haben. Frauen wechseln im Laufe ihres Lebens oft zwischen beiden Typen."
+    }
+  },
+  "mondZusammenhang": "Der weibliche Menstruationszyklus und der Mondzyklus sind sich in ihrer Dauer erstaunlich ähnlich: Der durchschnittliche Menstruationszyklus dauert etwa 28 Tage, der Mondzyklus 29,53 Tage. Ob es einen ursächlichen Zusammenhang gibt, ist wissenschaftlich nicht abschließend geklärt. Was jedoch viele Frauen beobachten: Ihre Menstruation tendiert dazu, sich im Laufe der Monate entweder um den Neumond oder um den Vollmond herum einzupendeln. Diese Beobachtung ist die Grundlage für die Unterscheidung zwischen Weißmond- und Rotmond-Zyklus. Der Menstruationszyklus stimmt nicht immer exakt mit dem Mondzyklus überein, sondern verlängert und verkürzt sich leicht, sodass die Menstruation über die Monate wandern kann. Genau diese Wanderung lässt sich in der Mond-Chronik der App wunderbar beobachten und nachvollziehen.",
+  "mondChronik": "Die Mond-Chronik ist ein von Miranda Gray entwickeltes Werkzeug zur Selbsterkenntnis. Im Gegensatz zu einem linearen Kalender bildet sie den Zyklus als Kreis ab und macht so die wiederkehrende, spiralförmige Natur des weiblichen Erlebens sichtbar. Durch das tägliche Notieren von Stimmungen, Energien, Träumen und körperlichen Empfindungen entsteht über mehrere Zyklen ein persönliches Muster. Die Frau erkennt, welche Energien sie in welcher Phase besonders stark erlebt, und kann ihr Leben bewusster nach diesen Rhythmen gestalten. Die digitale Mond-Chronik in dieser App überführt dieses Konzept in eine zeitgemäße Form und unterstützt die Mustererkennung durch automatische Auswertung."
+}

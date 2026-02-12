@@ -1,200 +1,162 @@
-# AI Coding Starter Kit
+# Roter Mond - Zyklus-Tracking App
 
-> A Next.js template with an AI-powered development workflow using 6 specialized agents
-
-## Vision
-Build web applications faster with AI agents handling Requirements, Architecture, Development, QA, and Deployment. Each agent has clear responsibilities and a human-in-the-loop workflow for quality control.
-
----
+> Eine mobile-first Web-App zur Begleitung des weiblichen Zyklus mit archetypen-basierter Beratung.
 
 ## Aktueller Status
-Template ready - Start by defining your first feature!
+
+PROJ-1 bis PROJ-5 implementiert und deployed. App ist produktionsbereit mit Realtime-Sync, Field-Level-Merge, Offline-Queue, verbesserter Gaeste-Migration und Menstruationsbeginn-Datum-Korrektur.
 
 ---
 
 ## Tech Stack
 
 ### Frontend
-- **Framework:** Next.js 16 (App Router)
-- **Sprache:** TypeScript
-- **Styling:** Tailwind CSS
-- **UI Library:** shadcn/ui (copy-paste components)
+- **Framework:** React 19 + Vite 7
+- **Routing:** react-router-dom 7
+- **Sprache:** JavaScript (kein TypeScript)
+- **Styling:** Plain CSS (App.css), CSS Custom Properties
+- **Design:** Mobile-first (max-width 480px)
 
 ### Backend
-- **Database:** Supabase (PostgreSQL with Auth)
-- **State Management:** React useState / Context API
-- **Data Fetching:** React Server Components / fetch
+- **Database:** Supabase (PostgreSQL + Realtime WebSocket)
+- **Auth:** Supabase Magic Link, Gast-Modus ohne Login
+- **Sync:** Write-through-Cache (localStorage + Supabase)
 
 ### Deployment
-- **Hosting:** Vercel (oder Netlify)
+- **Hosting:** Vercel
+- **Deploy:** `NODE_OPTIONS="--dns-result-order=ipv4first" npx vercel --prod`
+- **PWA:** Service Worker mit Offline-Support
 
 ---
 
 ## Features Roadmap
 
-### Your Features Will Appear Here
-
-Start by defining your first feature using the Requirements Engineer agent:
-```
-Read .claude/agents/requirements-engineer.md and create a feature spec for [your feature idea]
-```
-
-Example roadmap structure:
-- [PROJ-1] Your First Feature → 🔵 Planned → [Spec](/features/PROJ-1-feature-name.md)
-- [PROJ-2] Your Second Feature → ⚪ Backlog
+- [PROJ-1] Realtime Sync Engine → ✅ Implemented → [Spec](/features/PROJ-1-realtime-sync-engine.md)
+- [PROJ-2] Field-Level Merge → ✅ Implemented → [Spec](/features/PROJ-2-field-level-merge.md)
+- [PROJ-3] Offline Queue & Retry → ✅ Implemented → [Spec](/features/PROJ-3-offline-queue-retry.md)
+- [PROJ-4] Improved Guest Migration → ✅ Implemented → [Spec](/features/PROJ-4-improved-guest-migration.md)
+- [PROJ-5] Menstruationsbeginn-Datum korrigieren → ✅ Implemented → [Spec](/features/PROJ-5-menstruationsbeginn-datum-korrektur.md)
+- [PROJ-6] Freemium & Monetarisierung → 🔵 Planned → [Spec](/features/PROJ-6-freemium-monetarisierung.md)
 
 ---
 
-## Status-Legende
-- ⚪ Backlog (noch nicht gestartet)
-- 🔵 Planned (Requirements geschrieben)
-- 🟡 In Review (User reviewt)
-- 🟢 In Development (Wird gebaut)
-- ✅ Done (Live + getestet)
+## Architektur
+
+### Seiten (5)
+- **Heute** - Tagesansicht mit Archetyp, Symboltier, Orakeltexten
+- **Orakel** - Tageskarte ziehen
+- **Chronik** - Tageseintraege (4 Tabs: Koerper, Stimmung, Traeume, Kreativitaet)
+- **Wissen** - Informationstexte zu Zyklusphasen
+- **Einstellungen** - Zyklusdaten, Cloud-Sicherung, Datenverwaltung
+
+### Datenpersistenz
+```
+speicher.js (Fassade)
+├── speicherLocal.js (localStorage - synchron)
+├── speicherSupabase.js (Supabase Cloud - async)
+├── offlineQueue.js (Queue bei Netzwerkfehlern)
+└── mergeLogik.js (Feld-Level-Merge)
+```
+
+### 7 Datenstores
+1. `zyklusdaten` - Zyklusstart, Zykluslaenge, Zyklustyp
+2. `korrekturen` - Manuelle Phasenkorrekturen
+3. `zyklushistorie` - Vergangene Zyklen
+4. `chronik` - Tageseintraege (Stimmung, Energie, Koerper, Traeume, etc.)
+5. `tageskarten` - Gezogene Orakelkarten
+6. `zyklustyp_hinweis` - Hinweis-Status (gezeigt/abgelehnt)
+7. `angepasste_grenzen` - Benutzerdefinierte Phasengrenzen
+
+### Sync-Architektur
+```
+Schreibvorgang:
+  speicher.js → localStorage (sync) → Supabase (async)
+                                        ↓ bei Fehler
+                                    offlineQueue.js → Retry
+
+Realtime-Sync:
+  SyncEngineContext.jsx → Supabase WebSocket
+    ↓ Remote-Event
+  mergeLogik.js → Feld-Level-Merge → localStorage + UI-Update
+
+Gaeste-Migration (Login):
+  migrationsManager.js → 4 Pfade:
+    1. Hochladen (nur lokal)
+    2. Herunterladen (nur Cloud)
+    3. Zusammenfuehren (Feld-Level-Merge)
+    4. Fremddaten (Cloud gewinnt)
+```
+
+### Supabase-Migrationen
+Muessen in der Supabase SQL-Konsole ausgefuehrt werden:
+1. `roter-mond/supabase-migration.sql` - Basis-Schema (7 Tabellen)
+2. `roter-mond/migration-proj2.sql` - `feld_zeitstempel` JSONB-Spalten
+3. `roter-mond/migration-proj4.sql` - `guest_id` TEXT-Spalte in zyklusdaten
 
 ---
 
-## Development Workflow
+## Design System
 
-1. **Requirements Engineer** erstellt Feature Spec → User reviewt
-2. **Solution Architect** designed Schema/Architecture → User approved
-3. **PROJECT_CONTEXT.md** Roadmap updaten (Status: 🔵 Planned → 🟢 In Development)
-4. **Frontend + Backend Devs** implementieren → User testet
-5. **QA Engineer** führt Tests aus → Bugs werden gemeldet
-6. **DevOps** deployed → Status: ✅ Done
+### Farben
+- **Bordeaux:** `#C94963` (Zauberin-Archetyp)
+- **Olivgruen:** `#677E3D` (Junge Frau)
+- **Gold/Orange:** `#FFA500` (Mutter)
+- **Indigo:** `#26496F` (Alte Weise)
+- **Hintergrund:** `#F4EFEE`
+- **Rahmen:** `#E5DAD1`
+- **Text:** `#2B3A4A`
+
+---
+
+## Ordnerstruktur
+
+```
+redmoon-app/
+├── .claude/
+│   └── agents/              ← 6 AI Agents
+├── features/                ← Feature Specs (PROJ-1 bis PROJ-6)
+├── roter-mond/
+│   ├── src/
+│   │   ├── components/      ← React-Komponenten (TabBar, SyncStatus, CloudBanner, MergeToast, MigrationsOverlay, ...)
+│   │   ├── context/         ← React Context (AuthContext, SyncEngineContext)
+│   │   ├── pages/           ← Seiten-Komponenten (Heute, Orakel, Chronik, Wissen, Einstellungen, ...)
+│   │   ├── utils/           ← Logik (speicher, mergeLogik, offlineQueue, zyklus, mondphasen, zyklusKorrektur, guestId, migrationsManager, ...)
+│   │   ├── App.jsx          ← App-Root mit Routing
+│   │   └── App.css          ← Globale Styles
+│   ├── public/              ← Statische Dateien
+│   ├── supabase-migration.sql
+│   ├── migration-proj2.sql
+│   ├── migration-proj4.sql
+│   └── package.json
+└── PROJECT_CONTEXT.md       ← Diese Datei
+```
+
+---
+
+## Entwicklung
+
+```bash
+# Dependencies installieren
+cd roter-mond && npm install
+
+# Dev-Server starten
+npm run dev
+
+# Tests ausfuehren
+npx vitest run
+
+# Production-Build
+npx vite build
+
+# Deploy
+NODE_OPTIONS="--dns-result-order=ipv4first" npx vercel --prod
+```
 
 ---
 
 ## Environment Variables
 
-For projects using Supabase:
 ```bash
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_anon_key
 ```
-
-See `.env.local.example` for full list.
-
----
-
-## Agent-Team Verantwortlichkeiten
-
-- **Requirements Engineer** (`.claude/agents/requirements-engineer.md`)
-  - Feature Specs in `/features` erstellen
-  - User Stories + Acceptance Criteria + Edge Cases
-
-- **Solution Architect** (`.claude/agents/solution-architect.md`)
-  - Database Schema + Component Architecture designen
-  - Tech-Entscheidungen treffen
-
-- **Frontend Developer** (`.claude/agents/frontend-dev.md`)
-  - UI Components bauen (React + Tailwind + shadcn/ui)
-  - Responsive Design + Accessibility
-
-- **Backend Developer** (`.claude/agents/backend-dev.md`)
-  - Supabase Queries + Row Level Security Policies
-  - API Routes + Server-Side Logic
-
-- **QA Engineer** (`.claude/agents/qa-engineer.md`)
-  - Features gegen Acceptance Criteria testen
-  - Bugs dokumentieren + priorisieren
-
-- **DevOps** (`.claude/agents/devops.md`)
-  - Deployment zu Vercel
-  - Environment Variables verwalten
-  - Production-Ready Essentials (Error Tracking, Security Headers, Performance)
-
----
-
-## Production-Ready Features
-
-This template includes production-readiness guides integrated into the agents:
-
-- **Error Tracking:** Sentry setup instructions (DevOps Agent)
-- **Security Headers:** XSS/Clickjacking protection (DevOps Agent)
-- **Performance:** Database indexing, query optimization (Backend Agent)
-- **Input Validation:** Zod schemas for API safety (Backend Agent)
-- **Caching:** Next.js caching strategies (Backend Agent)
-
-All guides are practical and include code examples ready to copy-paste.
-
----
-
-## Design Decisions
-
-Document your architectural decisions here as your project evolves.
-
-**Template:**
-- **Why did we choose X over Y?**
-  → Reason 1
-  → Reason 2
-
----
-
-## Folder Structure
-
-```
-ai-coding-starter-kit/
-├── .claude/
-│   └── agents/              ← 6 AI Agents (Requirements, Architect, Frontend, Backend, QA, DevOps)
-├── features/                ← Feature Specs (Requirements Engineer creates these)
-│   └── README.md            ← Documentation on how to write feature specs
-├── src/
-│   ├── app/                 ← Pages (Next.js App Router)
-│   ├── components/          ← React Components
-│   │   └── ui/              ← shadcn/ui components (add as needed)
-│   └── lib/                 ← Utility functions
-│       ├── supabase.ts      ← Supabase client (commented out by default)
-│       └── utils.ts         ← Helper functions
-├── public/                  ← Static files
-├── PROJECT_CONTEXT.md       ← This file - update as project grows
-└── package.json
-```
-
----
-
-## Getting Started
-
-1. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-2. **Setup Environment Variables (if using Supabase):**
-   ```bash
-   cp .env.local.example .env.local
-   # Add your Supabase credentials
-   ```
-
-3. **Start development server:**
-   ```bash
-   npm run dev
-   ```
-
-4. **Start using the AI Agent workflow:**
-   - Tell Claude to read `.claude/agents/requirements-engineer.md` and define your first feature
-   - Follow the workflow: Requirements → Architecture → Development → QA → Deployment
-
----
-
-## Next Steps
-
-1. **Define your first feature idea**
-   - Think about what you want to build
-
-2. **Start with Requirements Engineer**
-   - Tell Claude: "Read .claude/agents/requirements-engineer.md and create a feature spec for [your idea]"
-   - The agent will ask clarifying questions and create a detailed spec
-
-3. **Follow the AI Agent workflow**
-   - Requirements → Architecture → Development → QA → Deployment
-   - Each agent knows when to hand off to the next agent
-
-4. **Track progress via Git**
-   - Feature specs in `/features/PROJ-X.md` show status (Planned → In Progress → Deployed)
-   - Git commits track all implementation details
-   - Use `git log --grep="PROJ-X"` to see feature history
-
----
-
-**Built with AI Agent Team System + Claude Code**

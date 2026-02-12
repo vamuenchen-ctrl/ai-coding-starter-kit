@@ -1,0 +1,128 @@
+{
+  "jungeFrau": {
+    "schluessel": "jungeFrau",
+    "kurzname": "Junge Frau",
+    "archetyp": "Maiden",
+    "symbol": "🌙",
+    "symbolBeschreibung": "zunehmende Mondsichel",
+    "farbe": "Olivgrün",
+    "farbeHex": "#677E3D",
+    "farbeBgHex": "#D2F0E8",
+    "jahreszeit": "Frühling",
+    "element": "Luft",
+    "mondphase": "Zunehmender Mond",
+    "zyklusphase": "Präovulatorisch (nach der Menstruation)",
+    "kernenergie": "Aufbruch, Dynamik, Selbstvertrauen, Unabhängigkeit",
+    "kurzbeschreibung": "Die Zeit des Neubeginns. Nach der Menstruation steigt deine Energie wieder an. Du fühlst dich leicht, klar und voller Tatendrang. Die Welt steht dir offen.",
+    "ausfuehrlicheBeschreibung": "In der Phase der Jungen Frau erwachst du wie die Natur im Frühling. Dein Geist ist klar und fokussiert, dein Körper fühlt sich leicht und beweglich an. Du bist voller Selbstvertrauen und Unabhängigkeit. Dies ist die ideale Zeit, um neue Projekte zu starten, Pläne zu schmieden und mutige Entscheidungen zu treffen. Deine Ausstrahlung ist frisch und einladend, doch dein Fokus liegt eher auf dir selbst und deinen eigenen Zielen als auf anderen. Du bist die Abenteurerin, die aufbricht, um die Welt zu entdecken.",
+    "staerken": [
+      "Klarheit im Denken und Planen",
+      "Körperliche Energie und Bewegungsfreude",
+      "Selbstvertrauen und Entschlusskraft",
+      "Konzentrationsfähigkeit",
+      "Offenheit für Neues"
+    ],
+    "herausforderungen": [
+      "Ungeduld mit langsameren Prozessen",
+      "Tendenz, die Bedürfnisse anderer zu übersehen",
+      "Übermäßiger Perfektionismus"
+    ],
+    "symboltier": "Schmetterling",
+    "symboltierBeschreibung": "Schmetterling – steht für Transformation, Leichtigkeit und die Freude am Aufbruch."
+  },
+  "mutter": {
+    "schluessel": "mutter",
+    "kurzname": "Mutter",
+    "archetyp": "Mother",
+    "symbol": "🌕",
+    "symbolBeschreibung": "Vollmond",
+    "farbe": "Warmes Gold / Orange",
+    "farbeHex": "#FFA500",
+    "farbeBgHex": "#FEE8C4",
+    "jahreszeit": "Sommer",
+    "element": "Erde",
+    "mondphase": "Vollmond",
+    "zyklusphase": "Ovulation / Eisprung",
+    "kernenergie": "Fürsorge, Ausstrahlung, Empathie, Nähren",
+    "kurzbeschreibung": "Die Zeit der Fülle. Rund um deinen Eisprung bist du auf dem Höhepunkt deiner nach außen gerichteten Energie. Du strahlst Wärme aus und fühlst dich verbunden mit allem, was lebt.",
+    "ausfuehrlicheBeschreibung": "In der Phase der Mutter erlebst du die Fülle des Sommers. Deine Energie ist nach außen gerichtet, warm und nährend. Du bist empathisch, geduldig und kannst gut zuhören. Andere fühlen sich von deiner Ausstrahlung angezogen. Dies ist die ideale Zeit für Zusammenarbeit, wichtige Gespräche, Fürsorge und das Pflegen von Beziehungen. Deine Kreativität ist fruchtbar und produktiv – du bringst Dinge zur Reife. Du bist die Nährende, die Raum schafft, in dem andere wachsen können.",
+    "staerken": [
+      "Empathie und emotionale Intelligenz",
+      "Kommunikationsfähigkeit",
+      "Geduld und Großzügigkeit",
+      "Produktive, umsetzungsorientierte Kreativität",
+      "Ausstrahlung und Charisma"
+    ],
+    "herausforderungen": [
+      "Tendenz, eigene Bedürfnisse zurückzustellen",
+      "Schwierigkeit, Nein zu sagen",
+      "Sich zu sehr über andere zu definieren"
+    ],
+    "symboltier": "Taube",
+    "symboltierBeschreibung": "Taube – steht für Liebe, Frieden und die nährende Kraft der Verbundenheit."
+  },
+  "zauberin": {
+    "schluessel": "zauberin",
+    "kurzname": "Zauberin",
+    "archetyp": "Enchantress",
+    "symbol": "🌖",
+    "symbolBeschreibung": "abnehmender Mond",
+    "farbe": "Lebhaftes Rosa / Bordeaux",
+    "farbeHex": "#C94963",
+    "farbeBgHex": "#F7D0D3",
+    "jahreszeit": "Herbst",
+    "element": "Feuer",
+    "mondphase": "Abnehmender Mond",
+    "zyklusphase": "Prämenstruell / Lutealphase",
+    "kernenergie": "Kreative Kraft, Intuition, Wandlung, wilde innere Energie",
+    "kurzbeschreibung": "Die Zeit der inneren Kraft. Deine Energie wendet sich nach innen. Intuition und Kreativität sind jetzt besonders stark – aber auch deine Emotionen. Du spürst, was unter der Oberfläche liegt.",
+    "ausfuehrlicheBeschreibung": "In der Phase der Zauberin betrittst du den Herbst deines Zyklus. Die nach außen gerichtete Energie der Mutter-Phase zieht sich zurück, und an ihre Stelle tritt eine wilde, ungezähmte innere Kraft. Deine Intuition ist messerscharf, deine Kreativität speist sich aus tiefen Quellen. Du siehst durch Fassaden hindurch und spürst Wahrheiten, die anderen verborgen bleiben. Dies ist die kraftvollste Zeit für kreatives Schaffen, für ehrliche Selbstreflexion und für das Setzen von Grenzen. Die Herausforderung liegt darin, diese intensive Energie nicht gegen dich selbst zu richten. Du bist die Wilde, die Wahrheitssucherin, die Schöpferin.",
+    "staerken": [
+      "Tiefe Intuition und Wahrnehmung",
+      "Kreative Kraft aus dem Unbewussten",
+      "Fähigkeit, Grenzen zu setzen",
+      "Ehrlichkeit und Klarheit",
+      "Verbindung zu Träumen und inneren Bildern"
+    ],
+    "herausforderungen": [
+      "Emotionale Intensität und Reizbarkeit",
+      "Innere Unruhe und Rastlosigkeit",
+      "Selbstkritik und destruktive Gedanken",
+      "Ungeduld mit oberflächlichen Interaktionen"
+    ],
+    "symboltier": "Eule",
+    "symboltierBeschreibung": "Eule – steht für Weisheit, Nachtsicht und die Fähigkeit, im Dunkeln zu sehen."
+  },
+  "alteWeise": {
+    "schluessel": "alteWeise",
+    "kurzname": "Alte Weise",
+    "archetyp": "Crone",
+    "symbol": "🌑",
+    "symbolBeschreibung": "Neumond",
+    "farbe": "Tiefes Blau / Indigo",
+    "farbeHex": "#26496F",
+    "farbeBgHex": "#F5F5F3",
+    "jahreszeit": "Winter",
+    "element": "Wasser",
+    "mondphase": "Neumond / Dunkelmond",
+    "zyklusphase": "Menstruation",
+    "kernenergie": "Innenschau, Loslassen, Erneuerung, tiefe Spiritualität",
+    "kurzbeschreibung": "Die Zeit der Stille. Während deiner Menstruation ziehst du dich in deine innere Welt zurück. Es ist die kraftvollste Zeit für Loslassen, Erneuerung und visionäre Einsichten.",
+    "ausfuehrlicheBeschreibung": "In der Phase der Alten Weisen betrittst du den Winter deines Zyklus – die tiefste, stillste und heiligste Zeit. Dein Körper reinigt sich, und mit der Menstruation lässt du los, was du nicht mehr brauchst. Deine Energie ist nach innen gerichtet, fast meditativ. Die Welt da draußen tritt in den Hintergrund. Dies ist nicht die Zeit für große Aktionen, sondern für Rückzug, Ruhe und Innenschau. In dieser Stille findest du tiefe Einsichten und visionäre Klarheit. Was du hier erkennst, wird zum Samen für den neuen Zyklus. Du bist die Weise, die Seherin, die in der Dunkelheit Licht findet.",
+    "staerken": [
+      "Tiefe innere Ruhe und Gelassenheit",
+      "Visionäre Klarheit und Einsicht",
+      "Fähigkeit zum Loslassen",
+      "Verbindung zur Spiritualität",
+      "Traumintensität und Zugang zum Unbewussten"
+    ],
+    "herausforderungen": [
+      "Geringe körperliche Energie",
+      "Rückzugsbedürfnis in einem Alltag, der nicht pausiert",
+      "Überempfindlichkeit gegenüber Reizen",
+      "Traurigkeit oder Melancholie"
+    ],
+    "symboltier": "Hase",
+    "symboltierBeschreibung": "Hase – steht für Intuition, Stille und die Verbindung zwischen den Welten."
+  }
+}

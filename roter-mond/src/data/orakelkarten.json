@@ -1,0 +1,398 @@
+[
+  {
+    "id": 0,
+    "nummer": 0,
+    "titel": "Die Zyklische Göttin",
+    "botschaft": "Du bist alle vier in einer. Junge Frau, Mutter, Zauberin und Alte Weise – sie alle leben in dir. Ehre jede von ihnen.",
+    "bedeutung": "Diese Karte erinnert daran, dass alle vier Archetypen immer in dir präsent sind, auch wenn gerade eine Phase dominiert. Sie ruft zur Ganzheit auf.",
+    "archetyp": "zentral",
+    "emoji": "🌀"
+  },
+  {
+    "id": 1,
+    "nummer": 1,
+    "titel": "Der Aufbruch",
+    "botschaft": "Ein neuer Weg öffnet sich vor dir. Wage den ersten Schritt.",
+    "bedeutung": "Neubeginn, Mut, Pioniergeist.",
+    "archetyp": "jungeFrau",
+    "emoji": "🌅"
+  },
+  {
+    "id": 2,
+    "nummer": 2,
+    "titel": "Die Klarheit",
+    "botschaft": "Du siehst klar. Vertraue dem, was du erkennst.",
+    "bedeutung": "Geistige Schärfe, Durchblick, Entscheidungskraft.",
+    "archetyp": "jungeFrau",
+    "emoji": "💎"
+  },
+  {
+    "id": 3,
+    "nummer": 3,
+    "titel": "Die Freiheit",
+    "botschaft": "Du bist an nichts gebunden, was du nicht wählst. Deine Freiheit ist dein Geburtsrecht.",
+    "bedeutung": "Unabhängigkeit, Selbstbestimmung, Loslösung.",
+    "archetyp": "jungeFrau",
+    "emoji": "🦅"
+  },
+  {
+    "id": 4,
+    "nummer": 4,
+    "titel": "Der Frühling",
+    "botschaft": "In dir keimt neues Leben. Gib ihm Licht und Raum.",
+    "bedeutung": "Wachstum, Hoffnung, frische Anfänge.",
+    "archetyp": "jungeFrau",
+    "emoji": "🌸"
+  },
+  {
+    "id": 5,
+    "nummer": 5,
+    "titel": "Der Tanz",
+    "botschaft": "Dein Körper will sich bewegen. Folge seinem Rhythmus.",
+    "bedeutung": "Körperfreude, Lebendigkeit, Ausdruck durch Bewegung.",
+    "archetyp": "jungeFrau",
+    "emoji": "💃"
+  },
+  {
+    "id": 6,
+    "nummer": 6,
+    "titel": "Die Neugier",
+    "botschaft": "Fragen sind mächtiger als Antworten. Bleib neugierig.",
+    "bedeutung": "Wissensdurst, Offenheit, Entdeckerfreude.",
+    "archetyp": "jungeFrau",
+    "emoji": "🔍"
+  },
+  {
+    "id": 7,
+    "nummer": 7,
+    "titel": "Der Schmetterling",
+    "botschaft": "Die Verwandlung ist geschehen. Breite deine Flügel aus.",
+    "bedeutung": "Transformation, Leichtigkeit, neue Identität.",
+    "archetyp": "jungeFrau",
+    "emoji": "🦋"
+  },
+  {
+    "id": 8,
+    "nummer": 8,
+    "titel": "Die Quelle",
+    "botschaft": "Frische Energie strömt in dein Leben. Trinke tief.",
+    "bedeutung": "Vitalität, Erneuerung, Lebenskraft.",
+    "archetyp": "jungeFrau",
+    "emoji": "⛲"
+  },
+  {
+    "id": 9,
+    "nummer": 9,
+    "titel": "Der Morgen",
+    "botschaft": "Jeder Morgen ist eine Einladung. Nimm sie an.",
+    "bedeutung": "Dankbarkeit für den neuen Tag, Optimismus, Präsenz.",
+    "archetyp": "jungeFrau",
+    "emoji": "🌄"
+  },
+  {
+    "id": 10,
+    "nummer": 10,
+    "titel": "Die Kriegerin",
+    "botschaft": "Du bist stärker, als du denkst. Steh für dich ein.",
+    "bedeutung": "Innere Stärke, Selbstbehauptung, Courage.",
+    "archetyp": "jungeFrau",
+    "emoji": "⚔️"
+  },
+  {
+    "id": 11,
+    "nummer": 11,
+    "titel": "Die Fülle",
+    "botschaft": "Du hast genug. Du bist genug. Alles ist da.",
+    "bedeutung": "Überfluss, Zufriedenheit, Genügsamkeit.",
+    "archetyp": "mutter",
+    "emoji": "🍇"
+  },
+  {
+    "id": 12,
+    "nummer": 12,
+    "titel": "Das Herz",
+    "botschaft": "Öffne dein Herz – auch wenn es verletzlich macht.",
+    "bedeutung": "Liebe, Verletzlichkeit, emotionale Offenheit.",
+    "archetyp": "mutter",
+    "emoji": "❤️"
+  },
+  {
+    "id": 13,
+    "nummer": 13,
+    "titel": "Die Verbindung",
+    "botschaft": "Du bist nicht allein. Spüre die unsichtbaren Fäden, die dich mit anderen verbinden.",
+    "bedeutung": "Gemeinschaft, Zugehörigkeit, Mitgefühl.",
+    "archetyp": "mutter",
+    "emoji": "🤝"
+  },
+  {
+    "id": 14,
+    "nummer": 14,
+    "titel": "Die Ernte",
+    "botschaft": "Was du gesät hast, trägt Früchte. Genieße, was reif geworden ist.",
+    "bedeutung": "Erfolg, Fruchtbarkeit, Belohnung der Geduld.",
+    "archetyp": "mutter",
+    "emoji": "🌾"
+  },
+  {
+    "id": 15,
+    "nummer": 15,
+    "titel": "Die Sonne",
+    "botschaft": "Dein Licht wärmt andere. Scheine, ohne dich zu verausgaben.",
+    "bedeutung": "Ausstrahlung, Großzügigkeit, Selbstfürsorge in der Fülle.",
+    "archetyp": "mutter",
+    "emoji": "☀️"
+  },
+  {
+    "id": 16,
+    "nummer": 16,
+    "titel": "Die Erde",
+    "botschaft": "Du bist getragen. Die Erde unter deinen Füßen hält dich.",
+    "bedeutung": "Erdung, Stabilität, Verwurzelung.",
+    "archetyp": "mutter",
+    "emoji": "🌍"
+  },
+  {
+    "id": 17,
+    "nummer": 17,
+    "titel": "Die Taube",
+    "botschaft": "Frieden beginnt in dir. Trage ihn nach außen.",
+    "bedeutung": "Innerer Frieden, Sanftheit, Friedensstiftung.",
+    "archetyp": "mutter",
+    "emoji": "🕊️"
+  },
+  {
+    "id": 18,
+    "nummer": 18,
+    "titel": "Der Garten",
+    "botschaft": "Pflege das, was dir wichtig ist. Es wird wachsen.",
+    "bedeutung": "Fürsorge, Geduld, liebevolle Aufmerksamkeit.",
+    "archetyp": "mutter",
+    "emoji": "🌻"
+  },
+  {
+    "id": 19,
+    "nummer": 19,
+    "titel": "Die Umarmung",
+    "botschaft": "Lass dich halten – von dir selbst, von anderen, vom Leben.",
+    "bedeutung": "Geborgenheit, Nähe, Empfangen können.",
+    "archetyp": "mutter",
+    "emoji": "🤗"
+  },
+  {
+    "id": 20,
+    "nummer": 20,
+    "titel": "Die Geburt",
+    "botschaft": "Etwas Neues wird durch dich in die Welt gebracht.",
+    "bedeutung": "Schöpfung, Kreativität, etwas Bedeutsames hervorbringen.",
+    "archetyp": "mutter",
+    "emoji": "🌱"
+  },
+  {
+    "id": 21,
+    "nummer": 21,
+    "titel": "Die Flamme",
+    "botschaft": "In dir brennt ein Feuer. Lass es leuchten, nicht zerstören.",
+    "bedeutung": "Leidenschaft, Transformation, kontrollierte Kraft.",
+    "archetyp": "zauberin",
+    "emoji": "🔥"
+  },
+  {
+    "id": 22,
+    "nummer": 22,
+    "titel": "Der Spiegel",
+    "botschaft": "Was dich an anderen stört, zeigt dir etwas über dich selbst.",
+    "bedeutung": "Selbsterkenntnis, Schatten, Projektion.",
+    "archetyp": "zauberin",
+    "emoji": "🪞"
+  },
+  {
+    "id": 23,
+    "nummer": 23,
+    "titel": "Die Nacht",
+    "botschaft": "Die Dunkelheit ist nicht dein Feind. Sie birgt deine tiefsten Schätze.",
+    "bedeutung": "Schattenarbeit, Akzeptanz, verborgene Gaben.",
+    "archetyp": "zauberin",
+    "emoji": "🌙"
+  },
+  {
+    "id": 24,
+    "nummer": 24,
+    "titel": "Die Grenze",
+    "botschaft": "Nein ist ein ganzer Satz. Du darfst dich schützen.",
+    "bedeutung": "Grenzsetzung, Selbstschutz, gesunde Abgrenzung.",
+    "archetyp": "zauberin",
+    "emoji": "🛡️"
+  },
+  {
+    "id": 25,
+    "nummer": 25,
+    "titel": "Die Eule",
+    "botschaft": "Sieh genau hin. Die Wahrheit zeigt sich denen, die wirklich schauen.",
+    "bedeutung": "Weisheit, Durchblick, Wahrnehmung des Verborgenen.",
+    "archetyp": "zauberin",
+    "emoji": "🦉"
+  },
+  {
+    "id": 26,
+    "nummer": 26,
+    "titel": "Der Kessel",
+    "botschaft": "In dir brodelt etwas. Lass es sich verwandeln – vom Rohen zum Kostbaren.",
+    "bedeutung": "Innere Alchemie, Transformation, kreative Gärung.",
+    "archetyp": "zauberin",
+    "emoji": "⚗️"
+  },
+  {
+    "id": 27,
+    "nummer": 27,
+    "titel": "Der Sturm",
+    "botschaft": "Widerstand ist zwecklos – lass den Sturm durch dich hindurchziehen. Danach ist Klarheit.",
+    "bedeutung": "Emotionale Intensität, Reinigung, Durchleben statt Unterdrücken.",
+    "archetyp": "zauberin",
+    "emoji": "⛈️"
+  },
+  {
+    "id": 28,
+    "nummer": 28,
+    "titel": "Die Schlange",
+    "botschaft": "Häute dich. Das, was nicht mehr passt, darf abfallen.",
+    "bedeutung": "Erneuerung, Abstreifen alter Muster, Transformation.",
+    "archetyp": "zauberin",
+    "emoji": "🐍"
+  },
+  {
+    "id": 29,
+    "nummer": 29,
+    "titel": "Das Labyrinth",
+    "botschaft": "Der Weg scheint verschlungen, aber er führt zum Zentrum. Geh weiter.",
+    "bedeutung": "Vertrauen in den Prozess, innere Reise, Geduld mit sich selbst.",
+    "archetyp": "zauberin",
+    "emoji": "🔮"
+  },
+  {
+    "id": 30,
+    "nummer": 30,
+    "titel": "Die Magierin",
+    "botschaft": "Du hast die Kraft, deine Welt zu verändern. Nutze sie weise.",
+    "bedeutung": "Persönliche Macht, Manifestation, bewusste Gestaltung.",
+    "archetyp": "zauberin",
+    "emoji": "✨"
+  },
+  {
+    "id": 31,
+    "nummer": 31,
+    "titel": "Die Stille",
+    "botschaft": "In der Stille liegt alles. Hör auf zu suchen und beginne zu lauschen.",
+    "bedeutung": "Innere Ruhe, Meditation, Antworten in der Stille.",
+    "archetyp": "alteWeise",
+    "emoji": "🕯️"
+  },
+  {
+    "id": 32,
+    "nummer": 32,
+    "titel": "Der Rückzug",
+    "botschaft": "Zieh dich zurück ohne Schuldgefühle. Dein Rückzug dient der Erneuerung.",
+    "bedeutung": "Erlaubnis zum Rückzug, Selbstfürsorge, Grenzen ehren.",
+    "archetyp": "alteWeise",
+    "emoji": "🏔️"
+  },
+  {
+    "id": 33,
+    "nummer": 33,
+    "titel": "Der Traum",
+    "botschaft": "Deine Träume sind Botschaften aus der Tiefe. Schenke ihnen Aufmerksamkeit.",
+    "bedeutung": "Traumarbeit, Unbewusstes, visionäre Einsichten.",
+    "archetyp": "alteWeise",
+    "emoji": "💫"
+  },
+  {
+    "id": 34,
+    "nummer": 34,
+    "titel": "Das Loslassen",
+    "botschaft": "Öffne deine Hände. Was wirklich zu dir gehört, bleibt auch ohne Festhalten.",
+    "bedeutung": "Loslassen, Vertrauen, Hingabe.",
+    "archetyp": "alteWeise",
+    "emoji": "🍂"
+  },
+  {
+    "id": 35,
+    "nummer": 35,
+    "titel": "Die Quelle der Tiefe",
+    "botschaft": "Tauche hinab. Unter der Oberfläche wartet deine tiefste Weisheit.",
+    "bedeutung": "Tiefe Innenschau, Kontakt mit dem Wesenskern.",
+    "archetyp": "alteWeise",
+    "emoji": "🌊"
+  },
+  {
+    "id": 36,
+    "nummer": 36,
+    "titel": "Der Neumond",
+    "botschaft": "Unsichtbar heißt nicht abwesend. Deine Kraft wächst im Verborgenen.",
+    "bedeutung": "Verborgenes Potenzial, Geduld, Vertrauen ins Unsichtbare.",
+    "archetyp": "alteWeise",
+    "emoji": "🌑"
+  },
+  {
+    "id": 37,
+    "nummer": 37,
+    "titel": "Die Ahninnen",
+    "botschaft": "Du stehst in einer langen Linie von Frauen. Ihre Weisheit lebt in dir.",
+    "bedeutung": "Ahnenlinie, weibliche Weisheitstradition, Verbundenheit über die Zeit.",
+    "archetyp": "alteWeise",
+    "emoji": "🌳"
+  },
+  {
+    "id": 38,
+    "nummer": 38,
+    "titel": "Das Wasser",
+    "botschaft": "Fließe. Widerstand macht starr – Hingabe macht frei.",
+    "bedeutung": "Fluss des Lebens, Flexibilität, Reinigung.",
+    "archetyp": "alteWeise",
+    "emoji": "💧"
+  },
+  {
+    "id": 39,
+    "nummer": 39,
+    "titel": "Der Hase",
+    "botschaft": "Zwischen den Welten zu wandeln ist deine Gabe. Vertraue deiner Wahrnehmung.",
+    "bedeutung": "Intuition, Feinfühligkeit, Grenzgängertum.",
+    "archetyp": "alteWeise",
+    "emoji": "🐇"
+  },
+  {
+    "id": 40,
+    "nummer": 40,
+    "titel": "Die Erneuerung",
+    "botschaft": "Aus jeder Dunkelheit wächst ein neues Licht. Der Zyklus beginnt von Neuem.",
+    "bedeutung": "Wiedergeburt, Hoffnung, der ewige Kreislauf.",
+    "archetyp": "alteWeise",
+    "emoji": "🌿"
+  },
+  {
+    "id": 41,
+    "nummer": 41,
+    "titel": "Das Einhorn",
+    "botschaft": "Du trägst eine unberührte Magie in dir. Keine Erfahrung der Welt kann sie zerstören.",
+    "bedeutung": "Reinheit des Herzens, ungebändigtes Potenzial, die Kraft der Einzigartigkeit.",
+    "archetyp": "jungeFrau",
+    "emoji": "🦄"
+  },
+  {
+    "id": 42,
+    "nummer": 42,
+    "titel": "Das Pferd",
+    "botschaft": "Zwischen Dienen und Freiheit liegt kein Widerspruch. Beides lebt in dir.",
+    "bedeutung": "Instinktive Kraft, Verbindung von Stärke und Anmut, Freiheit im Zusammenspiel.",
+    "archetyp": "mutter",
+    "emoji": "🐴"
+  },
+  {
+    "id": 43,
+    "nummer": 43,
+    "titel": "Der Kranich",
+    "botschaft": "Steh aufrecht in der Stille. Im Gleichgewicht offenbart sich, was die Unruhe verbirgt.",
+    "bedeutung": "Konzentration, meditatives Gleichgewicht, wache Gelassenheit.",
+    "archetyp": "zauberin",
+    "emoji": "🪶"
+  }
+]

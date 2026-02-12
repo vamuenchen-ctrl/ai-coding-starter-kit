@@ -1,0 +1,75 @@
+:root {
+  --color-bordeaux: #C94963;
+  --color-bordeaux-light: #D76B83;
+  --color-gold: #677E3D;
+  --color-gold-light: #8BA560;
+  --color-indigo: #26496F;
+  --color-indigo-light: #3A6A96;
+  --color-white-soft: #F4EFEE;
+  --color-white: #ffffff;
+  --color-text: #2B3A4A;
+  --color-text-muted: #8294A7;
+  --color-border: #E5DAD1;
+
+  /* RINGANA Phasen-Hintergrundfarben (sanfte BG-Varianten) */
+  --color-phase-bg-jungeFrau: #D2F0E8;  /* Zartes Mintgrün */
+  --color-phase-bg-mutter: #FEE8C4;      /* Pfirsich / Apricot */
+  --color-phase-bg-zauberin: #F7D0D3;    /* Zartrosa */
+  --color-phase-bg-alteWeise: #F5F5F3;   /* Warmgrau / Off-White */
+
+  /* RINGANA Funktionale Farben */
+  --color-success: #6ACCB2;              /* Türkis – Sync OK, Erfolg */
+  --color-info-bg: #D2F0E8;             /* Zartes Mintgrün – Info-Boxen */
+  --color-warn-bg: #FEE8C4;             /* Pfirsich – Warnhinweise */
+
+  /* RINGANA Rosa-Familie (dekorativ) */
+  --color-bordeaux-soft: #ECB6B8;        /* Rosé / Altrosa */
+
+  /* Typografie-Stufen */
+  --text-xl: 1.5rem;    /* Seitentitel */
+  --text-lg: 1.1rem;    /* Phasennamen, Kartentitel */
+  --text-md: 0.95rem;   /* Body-Text, Beschreibungen */
+  --text-sm: 0.85rem;   /* Sekundärtext, Hinweise */
+  --text-xs: 0.8rem;    /* Karten-Überschriften, Labels */
+  --text-2xs: 0.75rem;  /* Metadaten, Badges */
+  --text-3xs: 0.65rem;  /* Tab-Labels, Minitext */
+
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow: 0 2px 12px rgba(38, 73, 111, 0.08);
+  --shadow-lg: 0 4px 24px rgba(38, 73, 111, 0.10);
+
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-white-soft);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(160deg, var(--color-white-soft) 0%, #EBE3DF 100%);
+}
+
+#root {
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--color-white-soft);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
